@@ -24,11 +24,10 @@ const whitelist: string | any[] = [
   'http://localhost:3000',
   'http://localhost',
   'http://localhost:8100',
-  // 'http://54.146.103.85:3000',
-  // 'http://54.146.103.85:3000/upload',
-  // 'http://54.146.103.85:3000/api',
-  // 'http://54.146.103.85',
-  'https://workable.aetasaal2.0.com'
+  'http://54.146.103.85:3000',
+  'http://54.146.103.85:3000/upload',
+  'http://54.146.103.85:3000/api',
+  'http://54.146.103.85',
 ];
 function checkOriginAgainstWhitelist(ctx: Koa.Context) {
   const requestOrigin = ctx.request.headers.origin || ctx.request.origin;
