@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import * as ctrl from '../controller/ping';
+import ctrl from '../controller/ping';
 
 const router = new Router({
   prefix: `/api`

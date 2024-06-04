@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import * as ctrl from '../controller/user-location-trail';
+import ctrl from '../controller/user-location-trail';
 import authentication from '../middleware/authentication';
 import authorization from '../middleware/authorization';
 import { Role } from '../enum/role';

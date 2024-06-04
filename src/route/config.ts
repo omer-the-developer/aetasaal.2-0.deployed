@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import * as ctrl from '../controller/config';
+import ctrl from '../controller/config';
 
 const router = new Router({
   prefix: `/api/config`,

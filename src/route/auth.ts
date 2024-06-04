@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import * as ctrl from '../controller/auth';
+import ctrl from '../controller/auth';
 
 const router = new Router({
   prefix: `/api/auth`,

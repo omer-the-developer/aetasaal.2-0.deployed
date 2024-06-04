@@ -1,7 +1,7 @@
 import Router from 'koa-router';
 
 import authentication from '../middleware/authentication';
-import * as ctrl from '../controller/list-of-value';
+import ctrl from '../controller/list-of-value';
 
 const router = new Router({
   prefix: `/api/list-of-value`

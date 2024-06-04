@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import * as ctrl from '../controller/auth';
+import ctrl from '../controller/auth';
 import * as userCtrl from '../controller/user';
 import authentication from '../middleware/authentication';
 import authorization from '../middleware/authorization';
