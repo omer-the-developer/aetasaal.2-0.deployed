@@ -4,6 +4,7 @@
 
   import config from '../config/index';
 
+  //@ts-ignore
   const authorization = (isPublic: boolean = true, allowedRoles: string[] = []) => {
     return async (ctx: Context, next: () => void) => {
       if (isPublic) {

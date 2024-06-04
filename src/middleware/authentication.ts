@@ -8,6 +8,7 @@ import * as _ from 'lodash';
 
 //@ts-ignore
 const authentication = async (ctx: Context, next: () => Promise<any>) => {
+  //@ts-ignore
   const token = ctx.header.authorization;
   const platform = ctx.header.platform;
   const appVersion = parseFloat(ctx.header.appversion);
