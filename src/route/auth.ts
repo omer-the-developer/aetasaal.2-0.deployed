@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 
+//@ts-ignore
 import ctrl from '../controller/auth';
 
 const router = new Router({

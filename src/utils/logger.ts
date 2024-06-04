@@ -20,13 +20,17 @@ export class Logger {
       KoaBunyan.requestIdContext(),
       KoaBunyan.requestLogger({
         formatRequestMessage() {
+          //@ts-ignore
           return util.format('Request %s %s', this.request.method, this.request.originalUrl);
         },
         formatResponseMessage(data: any) {
           return util.format(
             'Response (%d) %s %s in %sms',
+            //@ts-ignore
             this.status,
+            //@ts-ignore
             this.request.method,
+            //@ts-ignore
             this.request.originalUrl,
             data.duration
           );

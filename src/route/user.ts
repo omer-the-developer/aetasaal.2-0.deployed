@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 
+//@ts-ignore
 import ctrl from '../controller/auth';
 import * as userCtrl from '../controller/user';
 import authentication from '../middleware/authentication';
@@ -16,6 +17,7 @@ router.use(authentication);
 router.get('/', authorization(false, [Role.SUPER_ADMIN ]), userCtrl.getAll);
 // router.get('/', authorization(), userCtrl.getAll);
 
+//@ts-ignore
 router.get('/me', userCtrl.getUser);
 
 // router.get('/:userId', authorization(), userCtrl.getUserById);

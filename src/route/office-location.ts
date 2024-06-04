@@ -11,6 +11,7 @@ const router = new Router({
 //@ts-ignore
 router.use(authentication);
 // router.use(authorization());
+//@ts-ignore
 router.use(authorization(false, [Role.SUPER_ADMIN ]));
 
 router.get('/', ctrl.getAll);
