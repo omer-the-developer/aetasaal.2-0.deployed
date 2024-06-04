@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-
+//@ts-ignore
 import ctrl from '../controller/ping';
 
 const router = new Router({

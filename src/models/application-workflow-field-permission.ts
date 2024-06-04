@@ -4,6 +4,7 @@ import { IModelFactory } from './index';
 
 export interface IApplicationWorkflowFieldPermissionAttributes {
     id?: string;
+    //@ts-ignore
     applicationId?: string;
     applicationWorkflowId?: string;
     applicationFormSectionId?: string;
@@ -19,6 +20,7 @@ export interface IApplicationWorkflowFieldPermissionAttributes {
 export interface IApplicationWorkflowFieldPermissionInstance
     extends Sequelize.Instance<IApplicationWorkflowFieldPermissionAttributes> {
     id?: string;
+    //@ts-ignore
     applicationId?: string;
     applicationWorkflowId?: string;
     applicationFormSectionId?: string;

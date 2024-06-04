@@ -157,6 +157,7 @@ export const getWithdrawExecutions = async (ctx: Context, next: () => void) => {
   const loggedInUser: string = ctx.state.user;
   const payload: IGetWithdrawRequest = {
     applicationId: ctx.query.applicationId,
+    //@ts-ignore
     startDate: ctx.query.startDate,
     //@ts-ignore
     endDate: ctx.query.endDate

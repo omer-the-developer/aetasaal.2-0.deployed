@@ -13,6 +13,7 @@ import { IUserAttributes, IUserInstance } from './user';
 
 export interface IApplicationExecutionAttributes {
     id?: string;
+    //@ts-ignore
     applicationId?: string;
     startedAt?: Date;
     status?: string;

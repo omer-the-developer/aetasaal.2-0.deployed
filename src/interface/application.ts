@@ -75,12 +75,14 @@ export interface IGetExecutionTimelineSelect {
 
 export interface ITimeApplicationReport {
     applicationId: string;
+    //@ts-ignore
     startDate: string;
     //@ts-ignore
     endDate: string;
 }
 
 export interface ITimeApplicationResponse {
+    //@ts-ignore
     applicationId?: string;
     id?: string;
     title?: string;
@@ -129,6 +131,7 @@ export interface IGetParticipatedUserSelect {
 }
 
 export interface IGetWithdrawRequest {
+    //@ts-ignore
     applicationId?: string;
     startDate?: string;
     endDate?: string;
@@ -138,6 +141,7 @@ export interface IApplicationExecutionInProcessQuery {
     userId: string;
     status: string;
     isAdmin?: boolean;
+    //@ts-ignore
     applicationId?: string;
     isClarity?: boolean;
     startDate?: string;
@@ -147,6 +151,7 @@ export interface IApplicationExecutionInProcessQuery {
 export interface IDeleteExecutionRequest {
     applicationId: string;
     loggedInUserId: string;
+    //@ts-ignore
     startDate: string;
     //@ts-ignore
     endDate: string;

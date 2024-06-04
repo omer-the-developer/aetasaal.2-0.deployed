@@ -11,6 +11,7 @@ export const ping = async (ctx: Context, next: () => void) => {
 
 export const generatePassword = async (ctx: Context, next: () => void) => {
   if (config.default.env === 'local') {
+    //@ts-ignore
     ctx.state.data = encryption.saltHashPassword(ctx.request.query.p);
   }
   await next();
