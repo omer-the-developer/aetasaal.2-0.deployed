@@ -104,7 +104,7 @@ export const getExecutionInProcessLoggedInUserId = async (ctx: Context, next: ()
 };
 
 export const getExecutionInProcessLoggedInUserIdByQuery = async (ctx: Context, next: () => void) => {
-  //@
+  //@ts-ignore
   const status: string = ctx.request.query.status;
   //@ts-ignore
   const type: string = ctx.request.query.type;
