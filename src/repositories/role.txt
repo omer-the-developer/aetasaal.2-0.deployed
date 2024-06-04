@@ -1,5 +1,5 @@
 var _ = require('lodash')
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 import { Op } from 'sequelize';
 
 import { Models } from '../models/index';

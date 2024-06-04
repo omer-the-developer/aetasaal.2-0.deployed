@@ -1,4 +1,4 @@
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 
 import { IModelFactory } from './index';
 import {

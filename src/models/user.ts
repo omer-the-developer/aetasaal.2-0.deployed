@@ -1,4 +1,4 @@
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 import { IUserRoleAttributes, IUserRoleInstance } from './user-role';
 
 import { IModelFactory } from './index';

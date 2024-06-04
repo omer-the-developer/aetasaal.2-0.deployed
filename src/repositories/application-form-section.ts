@@ -1,4 +1,4 @@
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 
 import { Models } from '../models/index';
 import { IApplicationFormSectionInstance, IApplicationFormSectionAttributes } from '../models/application-form-section';

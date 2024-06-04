@@ -1,5 +1,5 @@
 
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 
 import { Models } from '../models/index';
 import { IUserInstance, IUserAttributes } from './../models/user';

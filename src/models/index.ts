@@ -1,4 +1,4 @@
-import * as Sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 import { Database } from './../bootstrap/database';
 
 // Import model specification from its own definition file.
