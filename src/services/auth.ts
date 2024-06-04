@@ -1,8 +1,7 @@
 import * as boom from 'boom';
 var _ = require('lodash')
 import * as jwt from 'jsonwebtoken';
-import * as moment from 'moment';
-import * as config from '../config';
+import moment from 'moment';import * as config from '../config';
 import * as joiSchema from '../validations/schemas/auth';
 import * as encryption from '../utils/encryption';
 import * as userRepo from '../repositories/user';

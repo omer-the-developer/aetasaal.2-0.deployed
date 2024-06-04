@@ -1,6 +1,5 @@
 import * as fs from 'fs-extra';
-import * as moment from 'moment';
-import * as cloudinary from './cloudinary';
+import moment from 'moment';import * as cloudinary from './cloudinary';
 import * as joiSchema from '../validations/schemas/file';
 import { validate } from './../validations/index';
 
