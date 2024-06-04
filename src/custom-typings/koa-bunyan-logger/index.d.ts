@@ -1,6 +1,6 @@
 declare module 'koa-bunyan-logger' {
   import { Middleware } from 'koa';
-  import * as Bunyan from 'bunyan';
+  import Bunyan from 'bunyan';
 
   namespace koaBunyanLogger {
     interface IRequestIDContextOpts {

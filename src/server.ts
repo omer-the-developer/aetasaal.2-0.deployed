@@ -1,11 +1,11 @@
-import * as Bunyan from 'bunyan';
-import * as Koa from 'koa';
+import Bunyan from 'bunyan';
+import Koa from 'koa';
 import koaBody from 'koa-body';
 
 import * as helmet from 'koa-helmet';
 import * as mount from 'koa-mount';
 import * as serve from 'koa-static';
-import * as cors from 'koa2-cors';
+import cors from 'koa2-cors';
 import * as dotenv from 'dotenv';
 import bunyanLogger from 'koa-bunyan-logger';
 import * as path from 'path';

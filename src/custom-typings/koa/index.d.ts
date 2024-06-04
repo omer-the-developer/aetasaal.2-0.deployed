@@ -1,5 +1,5 @@
-import * as Koa from 'koa';
-import * as Bunyan from 'bunyan';
+import Koa from 'koa';
+import Bunyan from 'bunyan';
 
 import { IJwtToken } from '../../interface/jwt-token';
 import { IPaginationOpts } from '../../interface/request';

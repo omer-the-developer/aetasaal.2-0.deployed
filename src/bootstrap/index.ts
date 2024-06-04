@@ -1,4 +1,4 @@
-import * as Bunyan from 'bunyan';
+import Bunyan from 'bunyan';
 
 import { Database } from './database';
 
