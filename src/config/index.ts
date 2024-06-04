@@ -1,6 +1,4 @@
-import * as convict from 'convict';
-
-interface IConfig {
+import convict from 'convict';interface IConfig {
   env: string;
   version: string;
   tokenSecret: string;
