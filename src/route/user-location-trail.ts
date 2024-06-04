@@ -8,7 +8,7 @@ import { Role } from '../enum/role';
 const router = new Router({
   prefix: `/api/user-location-trail`,
 });
-
+//@ts-ignore
 router.use(authentication);
 
 // router.get('/', authorization(), ctrl.getAll);

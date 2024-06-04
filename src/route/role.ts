@@ -8,7 +8,7 @@ import { Role } from '../enum/role';
 const router = new Router({
   prefix: `/api/role`,
 });
-
+//@ts-ignore
 router.use(authentication);
 router.use(authorization(false, [Role.SUPER_ADMIN])); // Only super admin can access this module
 

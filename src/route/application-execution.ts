@@ -9,6 +9,7 @@ const router = new Router({
   prefix: `/api/application-execution`,
 });
 
+//@ts-ignore
 router.use(authentication);
 
 // router.get('/all', authorization(), ctrl.getAllExecution);

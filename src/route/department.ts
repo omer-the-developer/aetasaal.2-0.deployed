@@ -8,7 +8,7 @@ import { Role } from '../enum/role';
 const router = new Router({
   prefix: `/api/department`,
 });
-
+//@ts-ignore
 router.use(authentication);
 
 router.get('/', ctrl.getAll);

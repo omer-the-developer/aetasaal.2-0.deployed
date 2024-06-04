@@ -9,6 +9,7 @@ const router = new Router({
   prefix: `/api/application`,
 });
 
+//@ts-ignore
 router.use(authentication);
 
 router.get('/', ctrl.getCurrentLoggedInUserApplications);

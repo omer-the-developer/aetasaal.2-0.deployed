@@ -6,6 +6,7 @@ import * as userRepo from '../repositories/user';
 import * as _ from 'lodash';
 
 
+//@ts-ignore
 const authentication = async (ctx: Context, next: () => Promise<any>) => {
   const token = ctx.header.authorization;
   const platform = ctx.header.platform;

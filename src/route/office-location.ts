@@ -8,7 +8,7 @@ import { Role } from '../enum/role';
 const router = new Router({
   prefix: `/api/office-location`,
 });
-
+//@ts-ignore
 router.use(authentication);
 // router.use(authorization());
 router.use(authorization(false, [Role.SUPER_ADMIN ]));

@@ -6,7 +6,7 @@ import ctrl from '../controller/file';
 const router = new Router({
   prefix: `/api/file`,
 });
-
+//@ts-ignore
 router.use(authentication);
 
 router.post('/picture', ctrl.saveProfilePicture);

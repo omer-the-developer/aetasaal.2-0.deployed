@@ -8,6 +8,7 @@ const router = new Router({
   prefix: `/api/dashboard`,
 });
 
+//@ts-ignore
 router.use(authentication); 
 // router.use(authorization()); 
 router.use(authorization(false, [Role.SUPER_ADMIN])); 

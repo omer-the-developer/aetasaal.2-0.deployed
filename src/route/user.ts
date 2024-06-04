@@ -9,7 +9,7 @@ import { Role } from '../enum/role';
 const router = new Router({
   prefix: `/api/user`,
 });
-
+//@ts-ignore
 router.use(authentication);
 
 router.get('/', authorization(false, [Role.SUPER_ADMIN ]), userCtrl.getAll);
