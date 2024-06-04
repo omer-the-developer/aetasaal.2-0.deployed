@@ -1,4 +1,5 @@
 import Router from 'koa-router';
+//@ts-ignore
 import ctrl from '../controller/dashboard';
 import authentication from '../middleware/authentication';
 import authorization from '../middleware/authorization';

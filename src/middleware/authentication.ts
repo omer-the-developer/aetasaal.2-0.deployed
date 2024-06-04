@@ -11,6 +11,7 @@ const authentication = async (ctx: Context, next: () => Promise<any>) => {
   //@ts-ignore
   const token = ctx.header.authorization;
   const platform = ctx.header.platform;
+  //@ts-ignore
   const appVersion = parseFloat(ctx.header.appversion);
   
   try {
@@ -45,7 +46,7 @@ const authentication = async (ctx: Context, next: () => Promise<any>) => {
 };
 
   } catch (error) {
-    // Handle errors
+    //@ts-ignore
     if (boom.isBoom(error)) {
       throw error;
     } else {

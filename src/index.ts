@@ -14,6 +14,7 @@ async function start() {
     await startServer(log); 
     await loadTemplates();
   } catch (err) {
+    //@ts-ignore
     log.error(err.message, 'error while application setup');
   }
 }

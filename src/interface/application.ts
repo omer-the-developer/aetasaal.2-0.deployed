@@ -76,6 +76,7 @@ export interface IGetExecutionTimelineSelect {
 export interface ITimeApplicationReport {
     applicationId: string;
     startDate: string;
+    //@ts-ignore
     endDate: string;
 }
 
@@ -147,6 +148,7 @@ export interface IDeleteExecutionRequest {
     applicationId: string;
     loggedInUserId: string;
     startDate: string;
+    //@ts-ignore
     endDate: string;
     status: string;
 }

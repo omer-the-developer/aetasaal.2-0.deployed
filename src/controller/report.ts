@@ -19,6 +19,7 @@ export const getApplicationExecutionTimeReport = async (ctx: Context, next: () =
   const payload: ITimeApplicationReport = {
     applicationId: ctx.params.applicationId,
     startDate: ctx.query.startDate,
+    //@ts-ignore
     endDate: ctx.query.endDate
   };
   ctx.state.data = await reportService.getApplicationExecutionTimeReport(payload);
@@ -30,6 +31,7 @@ export const getTotalExecutionsCountReport = async (ctx: Context, next: () => vo
   const payload: ITimeApplicationReport = {
     applicationId: ctx.params.applicationId,
     startDate: ctx.query.startDate,
+    //@ts-ignore
     endDate: ctx.query.endDate
   };
   ctx.state.data = await reportService.getTotalExecutionsCountReport(payload);
@@ -41,6 +43,7 @@ export const getTotalExecutionsCountGraph = async (ctx: Context, next: () => voi
     const payload: ITimeApplicationReport = {
       applicationId: ctx.params.applicationId,
       startDate: ctx.query.startDate,
+      //@ts-ignore
       endDate: ctx.query.endDate
     };
     ctx.state.data = await reportService.getTotalExecutionsCountGraph(payload);
@@ -52,6 +55,7 @@ export const getApplicationExecutionLocationReport = async (ctx: Context, next: 
   const payload: ITimeApplicationReport = {
     applicationId: ctx.params.applicationId,
     startDate: ctx.query.startDate,
+    //@ts-ignore
     endDate: ctx.query.endDate
   };
   ctx.state.data = await reportService.getApplicationExecutionLocationReport(payload);

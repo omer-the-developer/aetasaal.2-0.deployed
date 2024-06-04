@@ -7,6 +7,7 @@ import * as config from '../config';
 
 export const login = async (ctx: Context, next: () => void) => {
   const platform = ctx.header.platform;
+  //@ts-ignore
   const appVersion = parseFloat(ctx.header.appversion);
 
   if (!platform || !appVersion) {

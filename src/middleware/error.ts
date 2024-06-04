@@ -22,9 +22,13 @@ const handler = async (ctx: Context, next: () => void) => {
   } catch (err) {
     let metaData;
 
+    //@ts-ignore
     if (err.isJoi) {
+      //@ts-ignore
       metaData = handleJoiError(err);
+      //@ts-ignore
     } else if (err.isBoom) {
+      //@ts-ignore
       metaData = handleBoomError(err);
     } else {
       metaData = handleDefaultError(err);

@@ -7,9 +7,13 @@ import PaginationDefaults from '../constants/pagination';
 
 export default async (ctx: Context, next: () => void) => {
   const pagination: IPaginationOpts = {
+    //@ts-ignore
     limit: ctx.query.limit,
+    //@ts-ignore
     offset: ctx.query.offset,
+    //@ts-ignore
     sortBy: ctx.query.sortBy,
+    //@ts-ignore
     sortOrder: ctx.query.sortOrder
   };
 
