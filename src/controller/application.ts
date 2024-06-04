@@ -73,6 +73,7 @@ export const getExecutionById = async (ctx: Context, next: () => void) => {
 export const getDetailExecutionById = async (ctx: Context, next: () => void) => {
   const executionId: string = ctx.params.executionId;
   const user: any = ctx.state.user;
+  //@ts-ignore
   const status: string = ctx.request.query.status === 'undefined' ? undefined : ctx.request.query.status;
   ctx.state.data = await applicationExecutionService.getDetailedExecutionById(executionId, user, status);
   await next();
@@ -85,7 +86,9 @@ export const getAllExecution = async (ctx: Context, next: () => void) => {
 };
 
 export const getExecutionByLoggedInUserId = async (ctx: Context, next: () => void) => {
+  //@ts-ignore
   const status: string = ctx.request.query.status === 'undefined' ? undefined : ctx.request.query.status;
+  //@ts-ignore
   const type: string = ctx.request.query.type;
   const user: any = ctx.state.user;
   ctx.state.data = await applicationExecutionService.getExecutionByLoggedInUserId(user, type, status);
@@ -93,6 +96,7 @@ export const getExecutionByLoggedInUserId = async (ctx: Context, next: () => voi
 };
 
 export const getExecutionInProcessLoggedInUserId = async (ctx: Context, next: () => void) => {
+  //@ts-ignore
   const status: string = ctx.request.query.status;
   const user: any = ctx.state.user;
   ctx.state.data = await applicationExecutionService.getExecutionInProcessLoggedInUserId(user, status);
@@ -100,11 +104,16 @@ export const getExecutionInProcessLoggedInUserId = async (ctx: Context, next: ()
 };
 
 export const getExecutionInProcessLoggedInUserIdByQuery = async (ctx: Context, next: () => void) => {
+  //@
   const status: string = ctx.request.query.status;
+  //@ts-ignore
   const type: string = ctx.request.query.type;
   const user: any = ctx.state.user;
+  //@ts-ignore
   const applicationId: string = ctx.request.query.applicationId;
+  //@ts-ignore
   const startDate: string = ctx.request.query.startDate;
+  //@ts-ignore
   const endDate: string = ctx.request.query.endDate;
   ctx.state.data = await applicationExecutionService.
     getExecutionInProcessLoggedInUserIdByQuery(user, status, applicationId, type, startDate, endDate);
@@ -119,9 +128,13 @@ export const getExecutionParticipatedLoggedInUserId = async (ctx: Context, next:
 
 export const getExecutionParticipatedQuery = async (ctx: Context, next: () => void) => {
   const user: any = ctx.state.user;
+  //@ts-ignore
   const searchText: string = ctx.request.query.searchText;
+  //@ts-ignore
   const startDate: string = ctx.request.query.startDate;
+  //@ts-ignore
   const endDate: string = ctx.request.query.endDate;
+//@ts-ignore
   ctx.state.data = await applicationExecutionService.getExecutionParticipatedLoggedInUserIdQuery(user, searchText, startDate, endDate);
   await next();
 };
@@ -129,7 +142,9 @@ export const getExecutionParticipatedQuery = async (ctx: Context, next: () => vo
 export const getInProgressExecutions = async (ctx: Context, next: () => void) => {
   const user: any = ctx.state.user;
   const applicationId: string = ctx.params.applicationId;
+  //@ts-ignore
   const startDate: string = ctx.request.query.startDate;
+  //@ts-ignore
   const endDate: string = ctx.request.query.endDate;
   ctx.state.data = await applicationExecutionService.getInProgressExecutions(user, applicationId, startDate, endDate);
   await next();
@@ -156,6 +171,7 @@ export const getApplicationFieldTitles = async (ctx: Context, next: () => void) 
 export const getWithdrawExecutions = async (ctx: Context, next: () => void) => {
   const loggedInUser: string = ctx.state.user;
   const payload: IGetWithdrawRequest = {
+    //@ts-ignore
     applicationId: ctx.query.applicationId,
     //@ts-ignore
     startDate: ctx.query.startDate,
