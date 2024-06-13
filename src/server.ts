@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // import * as Bunyan from 'bunyan';
 // import * as Koa from 'koa';
 // import * as koaBody from 'koa-body';
@@ -96,6 +97,10 @@ import * as Bunyan from 'bunyan';
 import * as https from 'https';
 import * as fs from 'fs';
 >>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
+=======
+import * as https from 'https';
+import * as fs from 'fs';
+>>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
 import * as Koa from 'koa';
 import * as koaBody from 'koa-body';
 import * as cors from 'koa2-cors';
@@ -115,18 +120,24 @@ const whitelist = [
   'http://localhost:3000',
   'http://localhost:8100',
 <<<<<<< HEAD
+<<<<<<< HEAD
   'http://54.146.103.85:3000',
   'http://54.146.103.85:3000/upload',
   'http://54.146.103.85:3000/api',
   'http://54.146.103.85',
   'https://workable.aetasaal.com'
 =======
+=======
+>>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
   'http://34.199.172.154:3000',
   'http://34.199.172.154',
   'http://localhost:3000/upload',
   'https://aetasaal.duckdns.org',
   'https://aetasaal.duckdns.org:3000',
   'http://localhost:3000/api'
+<<<<<<< HEAD
+>>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
+=======
 >>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
 ];
 
@@ -138,6 +149,7 @@ function checkOriginAgainstWhitelist(ctx: Koa.Context) {
   return requestOrigin;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export async function startServer(log: Bunyan) {
   const app = new Koa();
@@ -174,6 +186,54 @@ export async function startServer(log: Bunyan) {
       reject(err);
     });
   });
+=======
+export async function startServer(log: Logger) {
+  const app = new Koa();
+
+  try {
+    const privateKey = fs.readFileSync('/etc/letsencrypt/live/aetasaal.duckdns.org/privkey.pem', 'utf8');
+    const certificate = fs.readFileSync('/etc/letsencrypt/live/aetasaal.duckdns.org/cert.pem', 'utf8');
+    const ca = fs.readFileSync('/etc/letsencrypt/live/aetasaal.duckdns.org/chain.pem', 'utf8');
+
+    const httpsOptions = { key: privateKey, cert: certificate, ca: ca };
+
+    const server = https.createServer(httpsOptions, app.callback());
+
+    //@ts-ignore
+    app.use(cors({
+      //@ts-ignore
+      origin: (ctx: Koa.Context) => {
+        // Explicitly allow requests from the specified origin with HTTPS
+        return 'https://aetasaal.duckdns.org';
+      },
+      credentials: true,
+      allowHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'appversion', 'platform'],
+    }));
+
+    //@ts-ignore
+    app.use(bunyanLogger(log));
+    app.use(async (ctx: Koa.Context, next: any) => {
+      ctx.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      await next();
+    });
+
+    app.use(koaBody({ jsonLimit: '10mb', formLimit: '50mb', multipart: true, json: true }));
+    app.use(pagination);
+    app.use(errorMiddleware());
+    app.use(routes());
+    app.use(response());
+
+    return new Promise<void>((resolve, reject) => {
+
+      const p = process.env.PORT || config.server.port;
+//@ts-ignore
+      server.listen(p, () => { log.info('server started on port %d with env=%s', p, config.env); resolve(); });
+      server.on('error', err => { reject(err); });
+    });
+  } catch (err) {
+    throw new Error(`Error reading SSL certificate and private key files: ${err.message}`);
+  }
+>>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
 =======
 export async function startServer(log: Logger) {
   const app = new Koa();

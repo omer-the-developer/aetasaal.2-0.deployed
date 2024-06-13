@@ -35,8 +35,11 @@ async function start() {
 
     await bootstrap(log);
 <<<<<<< HEAD
+<<<<<<< HEAD
     await startServer(log);
 =======
+=======
+>>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
 //@ts-ignore
     await startServer(log); 
 >>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
