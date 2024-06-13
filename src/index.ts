@@ -32,8 +32,14 @@ start();
 
 async function start() {
   try {
+
     await bootstrap(log);
+<<<<<<< HEAD
     await startServer(log);
+=======
+//@ts-ignore
+    await startServer(log); 
+>>>>>>> f4c32a6 (Program running on IP : Next Prob - Invalid Execution Id)
     await loadTemplates();
   } catch (err) {
     log.error(err.message, 'error while application setup');

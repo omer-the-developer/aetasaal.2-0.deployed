@@ -1,6 +1,4 @@
 import { Context } from 'koa';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as compose from 'koa-compose';
 import { IResponse } from '../interface/response';
 
@@ -14,22 +12,22 @@ const handler = async (ctx: Context, next: () => void) => {
       },
       data: ctx.state.data,
     };
-    // @ts-ignore
+//@ts-ignore
     if (ctx.pagination && ctx.method === 'GET') {
-      // @ts-ignore
+//@ts-ignore
       ctx.body.meta.limit = ctx.pagination.limit;
-      // @ts-ignore
+//@ts-ignore
       ctx.body.meta.offset = ctx.pagination.offset;
-      // @ts-ignore
+//@ts-ignore
       ctx.body.meta.totalCount = ctx.pagination.totalCount;
     }
+  } else if (ctx.path.startsWith('/api')) {
+    ctx.status = 404;
+    ctx.body = { error: 'API endpoint not found' };
   } else {
-    ctx.type = 'html';
-    const toSend = path.join(__dirname, '../../web/index.html');
-    ctx.body = fs.createReadStream(toSend);
+    await next();
   }
-
-  await next();
 };
 
 export default () => compose([handler]);
+
