@@ -8,9 +8,9 @@ const router = new Router({
 
 // Define route handlers
 //@ts-ignore
-router.get('/ping', ping);
+// router.get('/ping', ping);
 
 //@ts-ignore
-router.get('/generate-password', generatePassword);
+// router.get('/generate-password', generatePassword);
 
 export default router.routes(); // Export the routes

@@ -13,18 +13,19 @@ export const signUpSchema: Joi.SchemaMap = {
     timezone: Joi.string().required(),
 };
 
-export const socialLoginSchema: Joi.SchemaMap = {
-    email: Joi.string().email().required(),
-    accessToken: Joi.string().required(),
-    phoneNo: Joi.string(),
-    socialProvider: Joi.string(),
-    pictureUrl: Joi.string(),
-    timezone: Joi.string(),
-    role: Joi.when('isSignUp', {
-        is: true,
-        then: Joi.string().required().valid([Role.SUPER_ADMIN , Role.BILLING, Role.APP_CREATOR])
-    }),
-};
+// export const socialLoginSchema: Joi.SchemaMap = {
+//     email: Joi.string().email().required(),
+//     accessToken: Joi.string().required(),
+//     phoneNo: Joi.string(),
+//     socialProvider: Joi.string(),
+//     pictureUrl: Joi.string(),
+//     timezone: Joi.string(),
+
+//     role: Joi.when('isSignUp', {
+//         is: true,
+//         then: Joi.string().required().valid([Role.SUPER_ADMIN , Role.BILLING, Role.APP_CREATOR])
+//     }),
+// };
 
 export const forgotSchema: Joi.SchemaMap = {
     email: Joi.string().email().required(),
