@@ -1,12 +1,5 @@
 import { Context } from 'koa';
-<<<<<<< HEAD
-import * as fs from 'fs';
-import * as path from 'path';
-import compose from 'koa-compose';
-
-=======
 import * as compose from 'koa-compose';
->>>>>>> backup-branch
 import { IResponse } from '../interface/response';
 
 const handler = async (ctx: Context, next: () => void) => {
