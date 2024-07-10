@@ -1,13 +1,16 @@
 import Router from 'koa-router';
 //@ts-ignore
-import ctrl from '../controller/ping';
+import { ping, generatePassword } from '../controller/ping'; // Import named exports
 
 const router = new Router({
   prefix: `/api`
 });
+
+// Define route handlers
 //@ts-ignore
-router.get('/ping', ctrl.ping);
+router.get('/ping', ping);
 
-router.get('/generate-password', ctrl.generatePassword);
+//@ts-ignore
+router.get('/generate-password', generatePassword);
 
-export default router.routes();
+export default router.routes(); // Export the routes

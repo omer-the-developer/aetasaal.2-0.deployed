@@ -29,5 +29,6 @@ const handler = async (ctx: Context, next: () => void) => {
   }
 };
 
+//@ts-ignore
 export default () => compose([handler]);
 

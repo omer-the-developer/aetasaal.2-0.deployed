@@ -64,6 +64,7 @@ export async function startServer(log: Logger) {
       await next();
     });
 
+    //@ts-ignore
     app.use(koaBody({ jsonLimit: '10mb', formLimit: '50mb', multipart: true, json: true }));
     app.use(pagination);
     app.use(errorMiddleware());
