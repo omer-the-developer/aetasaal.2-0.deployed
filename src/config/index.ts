@@ -102,11 +102,12 @@ function loadConfig(env: string): Partial<IConfig> {
 const envConfig = loadConfig(defaultConfig.env);
 const config: IConfig = { ...defaultConfig, ...envConfig };
 
-function validateConfig(config: IConfig) {
+function validateConfig(_config: IConfig) {
   // Add your validation logic here if needed
   console.log('Configuration validated');
 }
 
 validateConfig(config);
 
+console.log(config);
 export default config;
