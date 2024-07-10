@@ -1,4 +1,4 @@
-import convict from 'convict';interface IConfig {
+interface IConfig {
   env: string;
   version: string;
   tokenSecret: string;
@@ -44,147 +44,69 @@ import convict from 'convict';interface IConfig {
   appVersion: number;
 }
 
-const config = convict<IConfig>({
-  env: {
-    format: ['production', 'staging', 'qa', 'development', 'local', 'test'],
-    env: 'NODE_ENV',
-    arg: 'node-env',
-    default: 'development'
-  },
-  version: {
-    format: String,
-    default: 'unknown'
-  },
-  tokenSecret: {
-    format: String,
-    default: ''
-  },
+const defaultConfig: IConfig = {
+  env: process.env.NODE_ENV || 'development',
+  version: 'unknown',
+  tokenSecret: '',
   server: {
-    port: {
-      format: 'port',
-      default: 3000
-    },
-    frontendURL: {
-      format: String,
-      default: 'http://localhost:4200'
-    },
-    passwordSalt: {
-      format: String,
-      default: ''
-    },
-    tokenExpiry: {
-      format: String,
-      default: '1w'
-    },
-    resetHashExpiry: {
-      format: Number,
-      default: 4
-    }
+    port: 3000,
+    frontendURL: 'http://localhost:4200',
+    passwordSalt: '',
+    tokenExpiry: '1w',
+    resetHashExpiry: 4,
   },
   postgres: {
-    host: {
-      format: String,
-      default: 'localhost'
-    },
-    port: {
-      format: 'port',
-      default: 5432
-    },
-    username: {
-      format: String,
-      default: 'postgres'
-    },
-    password: {
-      format: String,
-      default: 'postgres'
-    },
-    database: {
-      format: String,
-      default: 'postgres'
-    },
-    url: {
-      format: String,
-      default: ''
-    },
-    ssl: {
-      doc: 'Whether to use SSL for PostgreSQL connection.',
-      format: Boolean,
-      default: false, 
-      env: 'POSTGRES_SSL',
-    }
-  
+    host: 'localhost',
+    port: 5432,
+    username: 'postgres',
+    password: 'postgres',
+    database: 'postgres',
+    url: '',
+    ssl: process.env.POSTGRES_SSL === 'true',
   },
   apiAccessKeys: {
-    app: {
-      format: String,
-      default: '123456'
-    }
+    app: '123456',
   },
   email: {
-    host: {
-      format: String,
-      default: ''
-    },
-    port: {
-      format: Number,
-      default: 465
-    },
-    secure: {
-      format: Boolean,
-      default: true
-    },
-    user: {
-      format: String,
-      default: ''
-    },
-    password: {
-      format: String,
-      default: ''
-    }
+    host: '',
+    port: 465,
+    secure: true,
+    user: '',
+    password: '',
   },
   cloudinary: {
-    name: {
-      format: String,
-      default: ''
-    },
-    apiKey: {
-      format: String,
-      default: ''
-    },
-    apiSecret: {
-      format: String,
-      default: ''
-    },
-    env: {
-      format: String,
-      default: ''
-    }
+    name: '',
+    apiKey: '',
+    apiSecret: '',
+    env: '',
   },
   sendgrid: {
-    key: {
-      format: String,
-      default: ''
-    }
+    key: '',
   },
   fcm: {
-    serverKey: {
-      format: String,
-      default: ''
-    }
+    serverKey: '',
   },
-  realTimeIntervalInMin: {
-    format: Number,
-    default: 2
-  },
-  appVersion: {
-    format: Number,
-    default: 0
+  realTimeIntervalInMin: 2,
+  appVersion: 0,
+};
+
+function loadConfig(env: string): Partial<IConfig> {
+  try {
+    return require(`./env/${env}.json`);
+  } catch (err) {
+    console.error(`Error loading configuration for environment: ${env}`, err);
+    return {};
   }
-});
+}
 
-const env = config.get('env');
-config.loadFile(__dirname + '/env/' + env + '.json');
+const envConfig = loadConfig(defaultConfig.env);
+const config: IConfig = { ...defaultConfig, ...envConfig };
 
-config.validate({ allowed: 'strict' });
+function validateConfig(config: IConfig) {
+  // Add your validation logic here if needed
+  console.log('Configuration validated');
+}
 
-export default config.getProperties();
+validateConfig(config);
+
+export default config;
