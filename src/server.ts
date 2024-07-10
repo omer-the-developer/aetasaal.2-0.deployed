@@ -1,6 +1,6 @@
 import * as https from 'https';
 import * as fs from 'fs';
-import * as Koa from 'koa';
+import Koa from 'koa';
 import * as koaBody from 'koa-body';
 import * as cors from 'koa2-cors';
 import * as dotenv from 'dotenv';
